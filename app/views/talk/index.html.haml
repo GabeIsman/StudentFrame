@@ -1,0 +1,19 @@
+%h1 Listing talk
+
+%table
+  %tr
+    %th Agenda
+    %th
+    %th
+    %th
+
+  - @talk.each do |talk|
+    %tr
+      %td= talk.agenda_id
+      %td= link_to 'Show', talk
+      %td= link_to 'Edit', edit_talk_path(talk)
+      %td= link_to 'Destroy', talk, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Talk', new_talk_path

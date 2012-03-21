@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Agenda:
+  = @talk.agenda_id
+
+= link_to 'Edit', edit_talk_path(@talk)
+\|
+= link_to 'Back', talk_index_path
