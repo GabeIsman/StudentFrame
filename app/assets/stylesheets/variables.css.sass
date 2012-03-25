@@ -1,0 +1,24 @@
+$page_width: 960px
+$page_height: 700px
+
+$primary_header_width: $page_width
+$primary_header_height: 35px
+$primary_search_height: 25px
+$primary_menu_height: 25px
+$primary_menu_width: $page_width
+
+$slide_width: $page_width
+$slide_height: $page_height - $primary_header_height - $primary_search_height - 1px
+
+$cms_form_width: $page_width * (2/3)
+$cms_table_width: $cms_form_width - 50px
+
+$dark_blue: rgb(0,0,50)
+$medium_blue: rgb(150,150,175)
+$light_blue: rgb(200,200,225)
+$grey: rgb(100,100,100)
+
+@mixin boxshadow
+  box-shadow: 0px 0px 10px black
+  -moz-box-shadow: 0px 0px 10px black
+  -webkit-box-shadow: 0px 0px 10px black

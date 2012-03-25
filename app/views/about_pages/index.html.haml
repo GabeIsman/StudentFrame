@@ -1,0 +1,17 @@
+%h1 Listing about_pages
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @about_pages.each do |about_page|
+    %tr
+      %td= link_to 'Show', about_page
+      %td= link_to 'Edit', edit_about_page_path(about_page)
+      %td= link_to 'Destroy', about_page, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New About page', new_about_page_path

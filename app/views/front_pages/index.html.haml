@@ -1,0 +1,19 @@
+%h1 Listing front_pages
+
+%table
+  %tr
+    %th Title
+    %th Subtitle
+    %th
+    %th
+
+  - @front_pages.each do |front_page|
+    %tr
+      %td= front_page.title
+      %td= front_page.subtitle
+      %td= link_to 'Edit', edit_front_page_path(front_page)
+      %td= link_to 'Destroy', front_page, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Front page', new_front_page_path

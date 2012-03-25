@@ -1,0 +1,51 @@
+@import variables
+
+header.cms-header
+  hgroup.cms-title-wrapper
+    h1.cms-title
+      font-size: 50px
+      text-align: center
+
+
+table
+  border: 1px solid black
+  border-collapse: collapse
+  margin: 0 auto
+  width: $cms_table_width
+  th
+    label
+      font-family: "News Cycle"
+      font-weight: 400
+      text-transform: uppercase
+  tr
+    td
+  th,
+  td
+    border: 1px solid black
+    font-family: "Garamond"
+    padding: 5px
+
+form.cms-form
+  background-color: $light_blue
+  margin: 0 auto
+  padding: 25px 0
+  width: $cms_form_width
+  th
+    width: 50px
+  tr.text_field
+    input
+      width: $cms_table_width - 20px - 50px
+  tr.text_area
+    textarea
+      width: $cms_table_width - 20px - 50px
+  tr.submit
+    input
+      background-color: $medium_blue
+      border: 0
+      border-radius: 0
+      color: white
+      display: block
+      font-family: "News Cycle"
+      margin: 0 auto
+      padding: 5px
+      text-transform: uppercase

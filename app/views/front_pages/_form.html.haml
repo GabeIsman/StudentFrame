@@ -1,0 +1,21 @@
+= form_for @front_page, :remote => true, :html => { :class => "cms-form", :id => "front-page-form" } do |f|
+  -if @front_page.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@front_page.errors.count, "error")} prohibited this front_page from being saved:"
+      %ul
+        - @front_page.errors.full_messages.each do |msg|
+          %li= msg
+  
+  %table.cms-table
+    %tr.text_field
+      %th= f.label :title
+      %td= f.text_field :title
+    %tr.text_field
+      %th= f.label :subtitle
+      %td= f.text_field :subtitle
+    %tr.text_area
+      %th= f.label :text
+      %td= f.text_area :text
+    %tr.submit
+      %th
+      %td= f.submit 'Save'

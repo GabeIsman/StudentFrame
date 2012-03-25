@@ -1,0 +1,10 @@
+= form_for @about_page do |f|
+  -if @about_page.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@about_page.errors.count, "error")} prohibited this about_page from being saved:"
+      %ul
+        - @about_page.errors.full_messages.each do |msg|
+          %li= msg
+
+  .actions
+    = f.submit 'Save'
