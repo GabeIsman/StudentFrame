@@ -1,0 +1,13 @@
+%header#agenda-header
+  %hgroup#agenda-title-wrapper
+    %h1= agenda.title
+    
+%ul#agenda-list
+  - agenda.articles.each do |article|
+    %li.agenda-article
+      %header
+        %hgroup
+          %h1= article.title
+          %h2= article.byline
+      #text
+        %p= raw truncate( article.text, :length => 140, :omission => '...' )
