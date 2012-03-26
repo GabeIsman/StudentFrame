@@ -24,6 +24,7 @@ class ArticlesController < ApplicationController
   # GET /articles/new
   # GET /articles/new.json
   def new
+    @agendas = Agenda.all
     @article = Article.new
 
     respond_to do |format|
@@ -34,6 +35,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
+    @agendas = Agenda.all
     @article = Article.find(params[:id])
   end
 

@@ -1,19 +1,26 @@
-%h1 Listing agendas
-
+%header.cms-header
+  %hgroup.cms-title-wrapper
+    %h1.cms-title Listing Agendas
 %table
   %tr
     %th Title
+    %th Subtitle
+    %th
     %th
     %th
     %th
 
   - @agendas.each do |agenda|
     %tr
-      %td= agenda.title
+      %td= agenda.title if agenda.title
+      %td= agenda.subtitle if agenda.subtitle
+      %td= agenda.current if agenda.current
       %td= link_to 'Show', agenda
       %td= link_to 'Edit', edit_agenda_path(agenda)
       %td= link_to 'Destroy', agenda, :confirm => 'Are you sure?', :method => :delete
 
 %br
 
-= link_to 'New Agenda', new_agenda_path
+%nav.cms-link-menu-wrapper
+  %ul.cms-link-menu-wrapper
+    %li= link_to 'New Agenda', new_agenda_path

@@ -1,12 +1,49 @@
 @import variables
 
+#slider
+  position: absolute
+
 section.slide
+  float: left
+  padding: 0 20px
   width: $slide_width
   height: $slide_height
   header
     hgroup
+      position: absolute
+      right: 20px
+      z-index: 1
+      width: $slide_width * (2/3)
+      height: $slide_height
       h1
         font-size: 75px
+        line-hegith: 75px
+        text-align: right
+        text-transform: uppercase
       h2
         font-size: 25px
+        line-height: 25px
+        text-align: right
+        text-transform: capitalize
+  #blurb
+    background-color: rgb(150,150,150)
+    background-color: rgba(0,0,0,.8)
+    color: white
+    overflow: hidden
+    padding: 20px
+    position: absolute
+    left: 0
+    z-index: 2
+    width: $slide_width / 3 - 40px
+    height: $slide_height - 40px
+    p:first-child:first-letter
+      float: left
+      font-family: "League Gothic"
+      font-size: 900%
+      margin-right: 5px
+    p
+      margin: 10px
+      text-align: justify
+      
+    
   

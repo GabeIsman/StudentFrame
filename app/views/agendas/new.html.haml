@@ -1,5 +1,9 @@
-%h1 New agenda
+%header.cms-header
+  %hgroup.cms-title-wrapper
+    %h1.cms-title New Agenda
 
 = render 'form'
 
-= link_to 'Back', agendas_path
+%nav.cms-link-menu-wrapper
+  %ul.cms-link-menu-wrapper
+    %li= link_to 'Back', agendas_path

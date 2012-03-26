@@ -1,9 +1,3 @@
-%header.cms-header
-  %hgroup.cms-title-wrapper
-    %h1.cms-title New Front Page
-
+= render :partial => "shared/cms_header", :locals => { :name => "Front Page" }
 = render 'form'
-
-%nav.cms-link-menu-wrapper
-  %ul.cms-link-menu-wrapper
-    %li= link_to 'Back', front_pages_path
+= render :partial => "shared/cms_footer", :locals => { :action => "front_page" }

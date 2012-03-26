@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120324011455) do
+ActiveRecord::Schema.define(:version => 20120326135916) do
 
   create_table "about_pages", :force => true do |t|
     t.text     "text"
@@ -24,11 +24,19 @@ ActiveRecord::Schema.define(:version => 20120324011455) do
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "subtitle"
+    t.boolean  "current"
   end
 
   create_table "articles", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "text"
+    t.string   "title"
+    t.string   "byline"
+    t.integer  "agenda_id"
+    t.integer  "user_id"
+    t.string   "type"
   end
 
   create_table "front_pages", :force => true do |t|

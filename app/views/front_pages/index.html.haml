@@ -1,5 +1,7 @@
-%h1 Listing front_pages
-
+%header.cms-header
+  %hgroup.cms-title-wrapper
+    %h1.cms-title Listing Front Pages
+    
 %table
   %tr
     %th Title
@@ -16,4 +18,6 @@
 
 %br
 
-= link_to 'New Front page', new_front_page_path
+%nav.cms-link-menu-wrapper
+  %ul.cms-link-menu-wrapper
+    %li= link_to 'New Front page', new_front_page_path

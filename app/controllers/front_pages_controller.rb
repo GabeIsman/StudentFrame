@@ -2,13 +2,18 @@ class FrontPagesController < ApplicationController
   
   def front_page
     @front_pages = FrontPage.all
-    @front_pages.each do |page|
-      page.text = "<p>" + page.text + "</p>"
-      while page.text.index( "\n" )
-        index = page.text.index( "\n" )
-        page.text[index] = "<p>\n</p>"
-      end      
-    end
+    render :partial => "front_page"
+    #@front_pages.each do |page|
+    #  page.text = "<p>" + page.text + "</p>"
+    #  while page.text.index( "\n" )
+    #    index = page.text.index( "\n" )
+    #    page.text[index] = "<p>\n</p>"
+    #  end      
+    #end
+  end
+  
+  def initial_front_page
+    @front_pages = FrontPage.all
   end
   
   

@@ -6,8 +6,16 @@
         - @agenda.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :title
-    = f.text_field :title
-  .actions
-    = f.submit 'Save'
+  %table
+    %tr.text_field
+      %th= f.label :title
+      %td= f.text_field :title
+    %tr.text_field
+      %th= f.label :subtitle
+      %td= f.text_field :subtitle
+    %tr.check_box
+      %th= f.label :current
+      %td= f.check_box( 'current' )
+    %tr.submit
+      %th
+      %td= f.submit 'Save'

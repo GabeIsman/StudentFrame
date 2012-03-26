@@ -10,6 +10,11 @@ class AgendasController < ApplicationController
     end
   end
 
+  def current_agenda
+    @agenda = Agenda.find_by_current( true )
+    render :partial => "current_agenda", :locals => { :agenda => @agenda }
+  end
+
   # GET /agendas/1
   # GET /agendas/1.json
   def show

@@ -1,17 +1,21 @@
-%h1 Listing articles
+= render :partial => "shared/cms_header", :locals => { :name => "Articles" }
 
 %table
   %tr
+    %th Title
+    %th Byline
+    %th Type
+    %th Agenda
     %th
     %th
     %th
 
   - @articles.each do |article|
     %tr
+      %td= article.title
+      %td= article.byline
+      %td= article.type
+      %td= article.agenda.title
       %td= link_to 'Show', article
       %td= link_to 'Edit', edit_article_path(article)
       %td= link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
-= link_to 'New Article', new_article_path
