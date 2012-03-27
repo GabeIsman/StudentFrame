@@ -2,12 +2,14 @@
 
 %table
   %tr
+    %th Title
     %th
     %th
     %th
 
   - @about_pages.each do |about_page|
     %tr
+      %td= about_page.title
       %td= link_to 'Show', about_page
       %td= link_to 'Edit', edit_about_page_path(about_page)
       %td= link_to 'Destroy', about_page, :confirm => 'Are you sure?', :method => :delete

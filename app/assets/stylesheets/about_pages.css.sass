@@ -1,3 +1,21 @@
-// Place all the styles related to the about_pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass here: http://sass-lang.com/
+@import variables
+
+#lightbox-gloss
+  background-color: rgba(0,0,0,.75)
+  display: none
+  position: absolute
+  top: 0
+  z-index: 3
+  width: 100%
+  height: 100%
+#lightbox-wrapper
+  background-color: white
+  @include boxshadow
+  display: none
+  margin: 125px 0 0 -250px
+  position: absolute
+  z-index: 4
+  left: 50%
+  width: 500px
+  height: 500px
+  
