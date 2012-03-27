@@ -1,4 +1,13 @@
 class AboutPagesController < ApplicationController
+  
+  def about_page
+    @about_pages = AboutPage.all
+    @about_pages.each { |about_page| about_page.text = add_p_tags( about_page.text ) }
+    @about_pages.sort! { |a,b| a.order <=> b.order }
+    render :partial => "about_pages/about_page"
+  end
+
+
   # GET /about_pages
   # GET /about_pages.json
   def index

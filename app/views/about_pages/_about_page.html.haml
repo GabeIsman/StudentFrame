@@ -1,0 +1,17 @@
+
+%header#about-header
+  %hgroup#about-kicker-wrapper
+    %h1#about-kicker About StudentFrame
+  %nav#about-navigation
+    %ul#about-menu
+      - @about_pages.each do |about_page|
+        %li.about_menu_li= about_page.title
+        
+#about-slider
+  - @about_pages.each do |about_page|
+    %section.about-slide
+      %header.about-slide-header
+        %hgroup
+          %h1= about_page.title
+      .about-text= raw about_page.text
+      

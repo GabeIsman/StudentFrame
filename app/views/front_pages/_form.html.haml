@@ -1,4 +1,4 @@
-= form_for @front_page, :remote => true, :html => { :class => "cms-form", :id => "front-page-form" } do |f|
+= form_for @front_page, :html => { :class => "cms-form", :id => "front-page-form" } do |f|
   -if @front_page.errors.any?
     #error_explanation
       %h2= "#{pluralize(@front_page.errors.count, "error")} prohibited this front_page from being saved:"

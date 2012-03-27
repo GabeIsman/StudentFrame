@@ -13,9 +13,94 @@
   @include boxshadow
   display: none
   margin: 125px 0 0 -250px
+  overflow: hidden
   position: absolute
   z-index: 4
   left: 50%
-  width: 500px
-  height: 500px
+  width: $lightbox_width
+  height: $lightbox_height
+  
+header#about-header
+  width: $about_header_width
+  height: $about_header_height
+  hgroup#about-kicker-wrapper
+    background-color: $dark_blue
+    width: $about_hgroup_width
+    height: $about_hgroup_height
+    h1#about-kicker
+      color: white
+      font-size: $about_hgroup_height - 5px
+      line-height: $about_hgroup_height
+      text-align: center
+      width: $about_hgroup_width
+      height: $about_hgroup_height
+  nav#about-navigation
+    border-bottom: 1px solid black
+    width: $about_navigation_width
+    height: $about_navigation_height
+    ul
+      li
+        background-color: white
+        color: black
+        border-left: 1px solid black
+        cursor: pointer
+        float: left
+        font-size: 12px
+        line-height: $about_navigation_height
+        text-align: center
+        width: ($lightbox_width / 6) - 1px
+        height: $about_navigation_height
+      li:first-child
+        border-left: 0
+      li.current-about-li
+        background-color: $medium_blue
+      li:hover
+        background-color: $light_blue
+
+#about-slider
+  margin: 20px 0
+  height: $about_slider_height
+  .about-slide
+    float: left
+    margin: 0 20px
+    width: $about_slide_width
+    height: $about_slide_height
+    header.about-slide-header
+      width: $about_slide_width
+      height: $about_slide_height / 5
+      hgroup
+        h1
+          font-size: $about_slide_height / 5 - 10px
+          line-height: $about_slide_height / 5
+          text-align: center
+    .about-text
+      p:first-child:first-letter
+        float: left
+        font-family: "league gothic"
+        margin-right: 10px
+        font-size: 1000%
+          
+    
+.about-control
+  background-color: white
+  cursor: pointer
+  -moz-border-raidus: 25px
+  -webkit-border-radius: 25px
+  border-radius: 25px
+  display: none
+  position: absolute
+  z-index: 5
+  width: 50px
+  height: 50px
+  
+#left-about-control
+  top: 50%
+  left: 50%
+  margin-top: -25px
+  margin-left: 300px
+#right-about-control
+  top: 50%
+  right: 50%
+  margin-top: -25px
+  margin-right: 300px
   

@@ -11,13 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120326135916) do
+ActiveRecord::Schema.define(:version => 20120327210529) do
 
   create_table "about_pages", :force => true do |t|
     t.text     "text"
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "order"
   end
 
   create_table "agendas", :force => true do |t|
@@ -37,6 +38,11 @@ ActiveRecord::Schema.define(:version => 20120326135916) do
     t.integer  "agenda_id"
     t.integer  "user_id"
     t.string   "type"
+  end
+
+  create_table "cms_pages", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "front_pages", :force => true do |t|

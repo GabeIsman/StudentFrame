@@ -50,15 +50,18 @@ $ ->
         $('#lightbox-wrapper').slideToggle(
           'slow',
           ->
+            $('.about-control').show()
             $.ajax(
               url: 'about_pages/about_page'
               success: (data) ->
                 $('#lightbox-wrapper').html(data)
+                aboutSliderBindings()
             )
         )  
     )
 
   $('#lightbox-gloss').click ->
+    $('.about-control').hide()
     $('#lightbox-wrapper').slideToggle(
       'slow',
       ->
@@ -97,4 +100,48 @@ $ ->
         'o-transform': 'rotate(' + x + 'deg)',
         'transform': 'rotate(' + x + 'deg)'
       )    
-    
+
+  aboutSliderBindings = () ->
+
+    $('.about-control').mousedown ->
+      $(this).css( 'background-color', 'rgb(0,0,50)' )
+    $('.about-control').mouseup ->
+      $(this).css( 'background-color', 'white' )
+
+    current_position = 0
+    slides = $('.about-slide')
+    slide_width = $('.about-slide').width() + 40
+    slide_height = $('.about-slide').height()
+    slider = $('#about-slider')
+
+    slides.css( 'float', 'left' )
+    slider.css(
+      'height': slide_height,
+      'width': slide_width * slides.length
+    )
+
+
+    slide = () ->
+      current_position = 0 if current_position > slides.length - 1
+      current_position = slides.length - 1 if current_position < 0
+      slider.animate(
+        'margin-left': -( slide_width * current_position ),
+        1000
+      )
+
+    # slide left
+    slide_left = () ->
+      current_position += 1
+      slide()
+
+    # slide right
+    slide_right = () ->
+      current_position -= 1
+      slide()
+
+    $("#left-about-control").click ->
+      console.log "hello"
+      slide_left()
+
+    $('#right-about-control').click ->
+      slide_right()

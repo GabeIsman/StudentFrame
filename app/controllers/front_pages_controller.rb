@@ -2,18 +2,17 @@ class FrontPagesController < ApplicationController
   
   def front_page
     @front_pages = FrontPage.all
+    @front_pages.each do |page|
+      page.text = add_p_tags( page.text )
+    end
     render :partial => "front_page"
-    #@front_pages.each do |page|
-    #  page.text = "<p>" + page.text + "</p>"
-    #  while page.text.index( "\n" )
-    #    index = page.text.index( "\n" )
-    #    page.text[index] = "<p>\n</p>"
-    #  end      
-    #end
   end
   
   def initial_front_page
     @front_pages = FrontPage.all
+    @front_pages.each do |page|
+      page.text = add_p_tags( page.text )
+    end
   end
   
   
@@ -47,6 +46,7 @@ class FrontPagesController < ApplicationController
   # POST /front_pages
   # POST /front_pages.json
   def create
+    @front_pages = FrontPage.all
     @front_page = FrontPage.new(params[:front_page])
 
     respond_to do |format|
