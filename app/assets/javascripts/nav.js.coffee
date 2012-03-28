@@ -1,4 +1,7 @@
 $ ->
+  
+  delay = (ms, func) ->
+    setTimeout func, ms
 
   $('#home-li').addClass( 'current-li' )
   $('ul#primary-menu li').click ->
@@ -8,40 +11,29 @@ $ ->
   $('li#home-li').click ->
     ls = LoadingSign( $('#content') )
     ls.prepare()
-    auto = ( x ) ->
-      if $('#loading-sign').length > 0
-        ls.rotate( x )
-        x++
-        t = setTimeout( =>
-          auto( x )
-        1, )
-      else
-        clearTimeout(t)
-    auto()
-    $.ajax(
-      url: '/front_pages/front_page'
-      success: (data) ->
-        $('#content').html(data)
-    )
+    ls.auto( 1 )
+    
+    ajaxit = () ->
+      $.ajax(
+        url: '/front_pages/front_page'
+        success: (data) ->
+          $('#content').html(data)
+          window.slide()
+      )
+    ls.auto( 1 )
+    delay 1000, -> ajaxit()
   
   $('li#agenda-li').click ->    
     ls = LoadingSign( $('#content') )
     ls.prepare()
-    auto = ( x ) ->
-      if $('#loading-sign').length > 0
-        ls.rotate( x )
-        x++
-        t = setTimeout( =>
-          auto( x )
-        1, )
-      else
-        clearTimeout(t)
-    auto()
-    $.ajax(
-      url: 'agendas/current_agenda'
-      success: (data) ->
-        $('#content').html(data)
-    )
+    ajaxit = () ->
+      $.ajax(
+        url: 'agendas/current_agenda'
+        success: (data) ->
+          $('#content').html(data)
+      )
+    ls.auto( 1 )
+    delay 1000, -> ajaxit()
     
   $('li#about-li').click ->
     $('#lightbox-gloss').slideToggle(
@@ -55,7 +47,7 @@ $ ->
               url: 'about_pages/about_page'
               success: (data) ->
                 $('#lightbox-wrapper').html(data)
-                aboutSliderBindings()
+                window.about_slide()
             )
         )  
     )
@@ -92,60 +84,20 @@ $ ->
           'height': '50px',
         )
     rotate: ( x ) ->
-      console.log "rotating"
+      console.log "#{x}"
       $('#loading-sign').css(
         '-webkit-transform': 'rotate(' + x + 'deg)',
         '-moz-transform': 'rotate(' + x + 'deg)',
         '-ms-transform': 'rotate(' + x + 'deg)',
         'o-transform': 'rotate(' + x + 'deg)',
         'transform': 'rotate(' + x + 'deg)'
-      )    
-
-  aboutSliderBindings = () ->
-
-    $('.about-control').mousedown ->
-      $(this).css( 'background-color', 'rgb(0,0,50)' )
-    $('.about-control').mouseup ->
-      $(this).css( 'background-color', 'white' )
-
-    current_position = 0
-    slides = $('.about-slide')
-    slide_width = $('.about-slide').width() + 40
-    slide_height = $('.about-slide').height()
-    slider = $('#about-slider')
-
-    slides.css( 'float', 'left' )
-    slider.css(
-      'height': slide_height,
-      'width': slide_width * slides.length
-    )
-
-
-    slide = () ->
-      current_position = 0 if current_position > slides.length - 1
-      current_position = slides.length - 1 if current_position < 0
-      slider.animate(
-        'margin-left': -( slide_width * current_position ),
-        1000
       )
-
-    # slide left
-    slide_left = () ->
-      current_position += 1
-      slide()
-
-    # slide right
-    slide_right = () ->
-      current_position -= 1
-      slide()
-
-    $("#left-about-control").click ->
-      console.log "hello"
-      slide_left()
-
-    $('#right-about-control').click ->
-      slide_right()
-    
-    $('li.about_menu_li').click ->
-      current_position = $(this).data( 'about-order' )
-      slide()
+    auto: ( x ) ->
+      if $('#loading-sign').length > 0
+        this.rotate( x )
+        x++
+        t = setTimeout( =>
+          this.auto( x )
+        ,1 )
+      else
+        clearTimeout(t)
