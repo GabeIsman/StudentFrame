@@ -1,12 +1,14 @@
 %header#agenda-header
   %hgroup#agenda-title-wrapper
-    %h1= agenda.title
+    %h3#agenda-kicker The Agenda
+    %h1#agenda-title= agenda.title
     
 %ul#agenda-list
   - agenda.articles.each do |article|
     %li.agenda-article
       %header
         %hgroup
+          %h3= article.type
           %h1= article.title
           %h2= article.byline
       #text
