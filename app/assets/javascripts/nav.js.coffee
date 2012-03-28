@@ -5,8 +5,12 @@ $ ->
 
   $('#home-li').addClass( 'current-li' )
   $('ul#primary-menu li').click ->
+    $('ul#primary-menu li').removeClass( 'old-current-li' )
+    if $(this).attr("id") is "about-li"
+      $('.current-li').addClass( 'old-current-li' )
     $('ul#primary-menu li').removeClass( 'current-li' )
     $(this).addClass( 'current-li' )
+      
   
   $('li#home-li').click ->
     ls = LoadingSign( $('#content') )
@@ -58,7 +62,10 @@ $ ->
       'slow',
       ->
         $('#lightbox-gloss').slideToggle(
-          'slow'
+          'slow',
+          ->
+            $('ul#primary-menu li').removeClass( 'current-li' )
+            $('.old-current-li').addClass( 'current-li' )
         )
     )
 
