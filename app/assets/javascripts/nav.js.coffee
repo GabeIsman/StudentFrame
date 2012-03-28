@@ -145,3 +145,7 @@ $ ->
 
     $('#right-about-control').click ->
       slide_right()
+    
+    $('li.about_menu_li').click ->
+      current_position = $(this).data( 'about-order' )
+      slide()

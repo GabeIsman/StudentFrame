@@ -5,11 +5,11 @@
   %nav#about-navigation
     %ul#about-menu
       - @about_pages.each do |about_page|
-        %li.about_menu_li= about_page.title
+        %li.about_menu_li{ "data-about-order" => about_page.order }= about_page.title
         
 #about-slider
   - @about_pages.each do |about_page|
-    %section.about-slide
+    %section.about-slide{ "data-about-order" => about_page.order }
       %header.about-slide-header
         %hgroup
           %h1= about_page.title
