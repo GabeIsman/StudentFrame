@@ -1,7 +1,4 @@
-%h1 Editing front_page
-
+= render :partial => "shared/cms_header", :locals => { :name => "Edit Front Page" }
 = render 'form'
+= render :partial => "shared/cms_footer"
 
-= link_to 'Show', @front_page
-\|
-= link_to 'Back', front_pages_path

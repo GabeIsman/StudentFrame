@@ -14,14 +14,14 @@
       %th= f.label :byline
       %td= f.text_field :byline
     %tr.select
+      %th= f.label :kind
+      %td= f.select( :kind, [ ["National Feature", "National Feature"], ["Campus Feature", "Campus Feature"] ], { :include_blank => true } )
+    %tr.select
       %th= f.label :agenda
       %td= f.select( "agenda_id", @agendas.map{ |a| [a.title, a.id] }, { :include_blank => true } )
     %tr.text_area
       %th= f.label :text
       %td= f.text_area :text
-    %tr.select
-      %th= f.label :type
-      %td= f.select( "type", [ ["National Feature", 1], ["Campus Feature", 2] ], { :include_blank => true } )
     %tr.submit
       %th
       %td= f.submit 'Save'

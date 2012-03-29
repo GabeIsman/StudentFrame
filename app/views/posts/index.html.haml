@@ -1,4 +1,4 @@
-%h1 Listing posts
+= render :partial => "shared/cms_header", :locals => { :name => "Posts" }
 
 %table
   %tr
@@ -24,4 +24,4 @@
 
 %br
 
-= link_to 'New Post', new_post_path
+= render :partial => "shared/cms_index_footer", :locals => { :action => "post" }

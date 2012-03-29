@@ -1,7 +1,5 @@
-%header.cms-header
-  %hgroup.cms-title-wrapper
-    %h1.cms-title Listing Front Pages
-    
+= render :partial => "shared/cms_header", :locals => { :name => "Front Pages" }
+
 %table
   %tr
     %th Title
@@ -16,8 +14,5 @@
       %td= link_to 'Edit', edit_front_page_path(front_page)
       %td= link_to 'Destroy', front_page, :confirm => 'Are you sure?', :method => :delete
 
-%br
+= render :partial => "shared/cms_index_footer", :locals => { :action => "front_page" }
 
-%nav.cms-link-menu-wrapper
-  %ul.cms-link-menu-wrapper
-    %li= link_to 'New Front page', new_front_page_path

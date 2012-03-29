@@ -1,4 +1,4 @@
-%h1 Listing about_pages
+= render :partial => "shared/cms_header", :locals => { :name => "About Pages" }
 
 %table
   %tr
@@ -16,6 +16,4 @@
       %td= link_to 'Edit', edit_about_page_path(about_page)
       %td= link_to 'Destroy', about_page, :confirm => 'Are you sure?', :method => :delete
 
-%br
-
-= link_to 'New About page', new_about_page_path
+= render :partial => "shared/cms_index_footer", :locals => { :action => "about_page" }

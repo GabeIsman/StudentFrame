@@ -1,7 +1,4 @@
-%h1 Editing post
-
+= render :partial => "shared/cms_header", :locals => { :name => "Edit Post" }
 = render 'form'
+= render :partial => "shared/cms_basic_footer"
 
-= link_to 'Show', @post
-\|
-= link_to 'Back', posts_path

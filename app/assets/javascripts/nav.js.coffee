@@ -13,31 +13,20 @@ $ ->
       
   
   $('li#home-li').click ->
-    ls = LoadingSign( $('#content') )
-    ls.prepare()
-    ls.auto( 1 )
-    
-    ajaxit = () ->
-      $.ajax(
-        url: '/front_pages/front_page'
-        success: (data) ->
-          $('#content').html(data)
-          window.slide()
-      )
-    ls.auto( 1 )
-    delay 1000, -> ajaxit()
+    a = AjaxIt()
+    a.run( '/front_pages/front_page' )
+
+  $('li#agenda-li').click ->
+    a = AjaxIt()
+    a.run( '/agendas/current_agenda' )
   
-  $('li#agenda-li').click ->    
-    ls = LoadingSign( $('#content') )
-    ls.prepare()
-    ajaxit = () ->
-      $.ajax(
-        url: 'agendas/current_agenda'
-        success: (data) ->
-          $('#content').html(data)
-      )
-    ls.auto( 1 )
-    delay 1000, -> ajaxit()
+  $('li#other_news-li').click ->
+    a = AjaxIt()
+    a.run( '/articles/other_news' )
+    
+  $('li#commentary-li').click ->
+    a = AjaxIt()
+    a.run( '/blogs/commentary' )
     
   $('li#about-li').click ->
     $('#lightbox-gloss').slideToggle(
@@ -48,7 +37,7 @@ $ ->
           ->
             $('.about-control').show()
             $.ajax(
-              url: 'about_pages/about_page'
+              url: '/about_pages/about_page'
               success: (data) ->
                 $('#lightbox-wrapper').html(data)
                 window.about_slide()
@@ -91,7 +80,6 @@ $ ->
           'height': '50px',
         )
     rotate: ( x ) ->
-      console.log "#{x}"
       $('#loading-sign').css(
         '-webkit-transform': 'rotate(' + x + 'deg)',
         '-moz-transform': 'rotate(' + x + 'deg)',
@@ -108,3 +96,19 @@ $ ->
         ,1 )
       else
         clearTimeout(t)
+        
+  AjaxIt = () ->
+    ls: LoadingSign( $('#content') )
+    run: ( ajax_url ) ->
+      this.ls.prepare()
+      this.ls.auto( 1 )
+      ajax_away = () ->
+        console.log "ajax_away called"
+        $.ajax(
+          url: ajax_url
+          success: (data) ->
+            $('#content').html(data)
+            if ajax_url is 'front_pages/front_page'
+              window.slide()
+        )
+      delay 1000, -> ajax_away()

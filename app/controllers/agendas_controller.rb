@@ -11,7 +11,7 @@ class AgendasController < ApplicationController
   end
 
   def current_agenda
-    @agenda = Agenda.find_by_current( true )
+    @agenda = Agenda.find_by_current( true )      
     render :partial => "current_agenda", :locals => { :agenda => @agenda }
   end
 

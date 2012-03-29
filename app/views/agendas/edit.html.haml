@@ -1,7 +1,3 @@
-%h1 Editing agenda
-
+= render :partial => "shared/cms_header", :locals => { :name => "Edit Agenda" }
 = render 'form'
-
-= link_to 'Show', @agenda
-\|
-= link_to 'Back', agendas_path
+= render :partial => "shared/cms_basic_footer"

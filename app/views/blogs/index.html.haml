@@ -1,0 +1,20 @@
+= render :partial => "shared/cms_header", :locals => { :name => "Blogs" }
+
+%table
+  %tr
+    %th Title
+    %th Byline
+    %th
+    %th
+    %th
+
+  - @blogs.each do |blog|
+    %tr
+      %td= blog.title
+      %td= blog.byline
+      %td= link_to 'Show', blog
+      %td= link_to 'Edit', edit_blog_path(blog)
+      %td= link_to 'Destroy', blog, :confirm => 'Are you sure?', :method => :delete
+
+
+= render :partial => "shared/cms_index_footer", :locals => { :action => "blog" }

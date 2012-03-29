@@ -1,4 +1,10 @@
 class ArticlesController < ApplicationController
+  
+  def other_news
+    @articles = Article.where( :agenda_id => nil )
+    render :partial => "articles/other_news"
+  end
+  
   # GET /articles
   # GET /articles.json
   def index

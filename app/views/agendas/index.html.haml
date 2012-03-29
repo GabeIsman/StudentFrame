@@ -1,6 +1,5 @@
-%header.cms-header
-  %hgroup.cms-title-wrapper
-    %h1.cms-title Listing Agendas
+= render :partial => "shared/cms_header", :locals => { :name => "Agendas" }
+
 %table
   %tr
     %th Title
@@ -19,8 +18,4 @@
       %td= link_to 'Edit', edit_agenda_path(agenda)
       %td= link_to 'Destroy', agenda, :confirm => 'Are you sure?', :method => :delete
 
-%br
-
-%nav.cms-link-menu-wrapper
-  %ul.cms-link-menu-wrapper
-    %li= link_to 'New Agenda', new_agenda_path
+= render :partial => "shared/cms_index_footer", :locals => { :action => "agenda" }
