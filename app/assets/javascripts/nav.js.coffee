@@ -60,7 +60,7 @@ $ ->
 
     
 
-  LoadingSign = ( div ) ->
+  window.LoadingSign = ( div ) ->
     topMargin: (div.height() / 2) - 25
     done: false
     prepare: () ->
@@ -98,7 +98,7 @@ $ ->
         clearTimeout(t)
         
   AjaxIt = () ->
-    ls: LoadingSign( $('#content') )
+    ls: window.LoadingSign( $('#content') )
     run: ( ajax_url ) ->
       this.ls.prepare()
       this.ls.auto( 1 )
@@ -108,7 +108,9 @@ $ ->
           url: ajax_url
           success: (data) ->
             $('#content').html(data)
-            if ajax_url is 'front_pages/front_page'
+            if ajax_url is '/front_pages/front_page'
               window.slide()
+            if ajax_url is '/blogs/commentary'
+              window.commentaryBindings()
         )
       delay 1000, -> ajax_away()

@@ -6,6 +6,7 @@ class BlogsController < ApplicationController
   end
   
   def ajax_show
+    puts "WHAT THE FUCK"
     @blog = Blog.find(params[:id])
     render :partial => "blogs/ajax_show"
   end

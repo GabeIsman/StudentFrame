@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120328214320) do
+ActiveRecord::Schema.define(:version => 20120329111556) do
 
   create_table "about_pages", :force => true do |t|
     t.text     "text"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(:version => 20120328214320) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "agenda_id"
   end
 
   create_table "cms_pages", :force => true do |t|
