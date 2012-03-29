@@ -6,8 +6,10 @@ class BlogsController < ApplicationController
   end
   
   def ajax_show
-    puts "WHAT THE FUCK"
     @blog = Blog.find(params[:id])
+    @blog.posts.each do |post|
+      post.text = add_p_tags( post.text )
+    end
     render :partial => "blogs/ajax_show"
   end
   
