@@ -4,7 +4,6 @@ $ ->
   window.commentaryBindings = () ->
   
     $('.blog-title').click ->
-      console.log 'clicked'
       a = new AjaxIt
       a.run( '/blogs/ajax_show/', $(this).data( 'blog-id' ) )
     
