@@ -112,5 +112,9 @@ $ ->
               window.slide()
             if ajax_url is '/blogs/commentary'
               window.commentaryBindings()
+            if ajax_url is '/agendas/current_agenda'
+              FB.XFBML.parse()
+              window.hide_agenda_text()
+              window.show_agenda_text_bindings()
         )
       delay 1000, -> ajax_away()

@@ -11,7 +11,10 @@ class AgendasController < ApplicationController
   end
 
   def current_agenda
-    @agenda = Agenda.find_by_current( true )      
+    @agenda = Agenda.find_by_current( true )
+    @agenda.articles.each do |article|
+      article.text = add_p_tags( article.text )
+    end
     render :partial => "current_agenda", :locals => { :agenda => @agenda }
   end
 

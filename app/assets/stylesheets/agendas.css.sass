@@ -13,13 +13,56 @@ header#agenda-header
       
 ul#agenda-list
   border-top: 5px solid $dark_blue
+  border-right: 1px solid $dark_blue
+  margin-top: 25px
+  margin-right: 20px
+  
   li.agenda-article
     border-bottom: 5px solid $dark_blue
     padding: 20px
-    width: $page-width - 40px
-    header
-      hgroup
-        h3
+    position: relative
+    width: $page-width - 60px
+    h3
+      background-color: white
+      font-size: 15px
+      line-height: 15px
+      padding: 0 10px
+      position: absolute
+      top: -12.5px
+      text-align: center
+      text-transform: uppercase
+    .article-wrapper
+      border: 1px solid $dark_blue
+      -webkit-border-top-left-radius: 50px
+      -moz-border-top-left-radiuw: 50px
+      border-top-left-radius: 50px
+      -webkit-border-bottom-right-radius: 50px
+      -moz-border-bottom-right-radius: 50px
+      border-bottom-right-radius: 50px
+      margin-top: 10px
+      padding: 20px 0 0 0 
+      width: $page-width - 60px
+      header
+        display: block
+        position: relative
         h1
+          background-color: white
+          cursor: pointer
+          font-size: 50px
+          line-height: 50px
+          margin-top: -40px
+          margin-left: 50px
+          padding: 0 10px
+          position: absolute
+      .text
+        margin: 20px
+      footer
         h2
-    #text
+          background-color: white
+          font-size: 25px
+          line-height: 25px
+          margin-bottom: -7px
+          margin-right: 50px
+          position: absolute
+          right: 0
+          bottom: 0
