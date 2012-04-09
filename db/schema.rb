@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(:version => 20120329111556) do
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "subtitle"
     t.boolean  "current"
   end
 
@@ -57,7 +56,6 @@ ActiveRecord::Schema.define(:version => 20120329111556) do
   create_table "front_pages", :force => true do |t|
     t.text     "text"
     t.string   "title"
-    t.string   "subtitle"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
