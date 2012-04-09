@@ -12,4 +12,6 @@
           %h1= article.title
           %h2= article.byline
       #text
+        = image_tag article.image.url(:medium)
         %p= raw truncate( article.text, :length => 140, :omission => '...' )
+

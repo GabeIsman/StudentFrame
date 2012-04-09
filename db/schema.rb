@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120329111556) do
+ActiveRecord::Schema.define(:version => 20120409040036) do
 
   create_table "about_pages", :force => true do |t|
     t.text     "text"
@@ -37,6 +37,10 @@ ActiveRecord::Schema.define(:version => 20120329111556) do
     t.integer  "agenda_id"
     t.integer  "user_id"
     t.string   "kind"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "blogs", :force => true do |t|
@@ -58,6 +62,10 @@ ActiveRecord::Schema.define(:version => 20120329111556) do
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "pages", :force => true do |t|
