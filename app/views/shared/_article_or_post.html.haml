@@ -1,0 +1,7 @@
+%section.article-or-post-wrapper
+  %header.article-or-post-header
+    %hgroup
+      %h1= article_or_post.title
+  .article-or-post-content
+    %p= raw truncate( article_or_post.text, :length => 500, :omission => '...' )
+  %footer.article_or_post-footer
