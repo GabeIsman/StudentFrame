@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120410133630) do
+ActiveRecord::Schema.define(:version => 20120410204413) do
 
   create_table "about_pages", :force => true do |t|
     t.text     "text"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20120410133630) do
     t.integer  "agenda_id"
     t.integer  "user_id"
     t.string   "kind"
+    t.boolean  "is_original"
   end
 
   create_table "blogs", :force => true do |t|
@@ -78,6 +79,8 @@ ActiveRecord::Schema.define(:version => 20120410133630) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "blog_id"
+    t.boolean  "is_original"
+    t.string   "byline"
   end
 
   create_table "talk", :force => true do |t|
