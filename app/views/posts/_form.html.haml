@@ -9,6 +9,9 @@
     %tr.text_field
       %th= f.label :title
       %td= f.text_field :title
+    %tr.check_box
+      %th= f.label :is_original
+      %td= f.check_box( "is original?" )
     %tr.select
       %th= f.label :blog
       %td= f.select( "blog_id", @blogs.map{ |a| [a.title, a.id] } )

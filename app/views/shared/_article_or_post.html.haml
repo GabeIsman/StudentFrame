@@ -5,3 +5,5 @@
   .article-or-post-content
     %p= raw truncate( article_or_post.text, :length => 500, :omission => '...' )
   %footer.article_or_post-footer
+    %hgroup
+      %h2= article_or_post.byline if article_or_post.byline
