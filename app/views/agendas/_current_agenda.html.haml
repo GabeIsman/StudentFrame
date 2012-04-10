@@ -3,22 +3,18 @@
     %h3#agenda-kicker.kicker The Agenda
     %h1#agenda-title= agenda.title
 
-
-
-%ul#agenda-list
-  - agenda.articles.each do |article|
-    %li.agenda-article
-      %h3= article.kind
-      .article-wrapper
-        %header
-          %h1.agenda-article-title= article.title
-        .text
-          .preview-text
-            %p= raw truncate( article.text, :length => 500, :omission => '...' )
-          .full-text
-            = raw article.text
-          .comments
-            %fb:comments{ :href => "localhost", :numposts => 5, :width => 500, :colorscheme => "light" }
-        
-        %footer
-          %h2= article.byline
+#agenda-content
+  .pitch-wrapper
+    = raw agenda.pitch
+  %ul#agenda-list
+    
+    %li.agenda-article#national-feature-li
+      %h3 National Feature
+      - agenda.articles.each do |article|
+        - if article.kind == "National Feature"
+          = render :partial => "agendas/agenda_article", :locals => { :article => article }
+    %li.agenda-article#campus-feature-li
+      %h3 Campus Feature
+      - agenda.articles.each do |article|
+        - if article.kind == "Campus Feature"
+          = render :partial => "agendas/agenda_article", :locals => { :article => article }

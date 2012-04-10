@@ -1,18 +1,5 @@
 class BlogsController < ApplicationController
   
-  def commentary
-    @blogs = Blog.where( :agenda_id => nil )
-    render :partial => "blogs/commentary"
-  end
-  
-  def ajax_show
-    @blog = Blog.find(params[:id])
-    @blog.posts.each do |post|
-      post.text = add_p_tags( post.text )
-    end
-    render :partial => "blogs/ajax_show"
-  end
-  
   # GET /blogs
   # GET /blogs.json
   def index

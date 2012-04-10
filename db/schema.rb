@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120329111556) do
+ActiveRecord::Schema.define(:version => 20120410133630) do
 
   create_table "about_pages", :force => true do |t|
     t.text     "text"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20120329111556) do
     t.datetime "updated_at"
     t.string   "subtitle"
     t.boolean  "current"
+    t.text     "pitch"
   end
 
   create_table "articles", :force => true do |t|

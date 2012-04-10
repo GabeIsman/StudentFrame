@@ -1,9 +1,0 @@
-%header#commentary-header
-  %hgroup
-    %h3#agenda-kicker.kicker Commentary
-%ul#blog-list
-  - @blogs.each do |blog|
-    %header.blog-header
-      %hgroup
-        %h1.blog-title{ "data-blog-id" => "#{blog.id}" }= blog.title
-        %h2= blog.byline

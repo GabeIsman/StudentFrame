@@ -1,4 +1,10 @@
 class PostsController < ApplicationController
+  
+  def commentary
+    @posts = Post.where( blog = nil )
+    render :partial => "posts/commentary"
+  end
+  
   # GET /posts
   # GET /posts.json
   def index
