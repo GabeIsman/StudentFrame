@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
   
+  before_filter :require_login, :except => [:show, :other_news]
+
   def other_news
     @articles = Article.where( :agenda_id => nil )
     render :partial => "articles/other_news"

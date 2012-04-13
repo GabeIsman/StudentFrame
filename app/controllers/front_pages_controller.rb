@@ -1,5 +1,7 @@
 class FrontPagesController < ApplicationController
   
+  before_filter :require_login, :except => [:front_page, :initial_front_page, :show]
+
   def front_page
     @front_pages = FrontPage.all
     @front_pages.each do |page|

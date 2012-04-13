@@ -1,5 +1,7 @@
 class BlogsController < ApplicationController
   
+  before_filter :require_login, :except => [:show]
+
   # GET /blogs
   # GET /blogs.json
   def index
