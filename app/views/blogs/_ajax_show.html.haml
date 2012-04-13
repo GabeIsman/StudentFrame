@@ -1,7 +1,0 @@
-%header#show-blog-header
-  %hgroup
-    %h1= @blog.title
-    %h2= @blog.byline
-#show-blog-wrapper
-  -@blog.posts.each do |post|
-    = render :partial => "posts/blog_post", :locals => { :post => post }

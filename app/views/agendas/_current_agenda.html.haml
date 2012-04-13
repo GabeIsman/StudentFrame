@@ -2,7 +2,13 @@
   %hgroup#agenda-title-wrapper
     %h3#agenda-kicker.kicker The Agenda
     %h1#agenda-title= agenda.title
+
+#agenda-content
+  .pitch-wrapper
+    = raw agenda.pitch
+  %ul#agenda-list
     
+<<<<<<< HEAD
 %ul#agenda-list
   - agenda.articles.each do |article|
     %li.agenda-article
@@ -15,3 +21,15 @@
         = image_tag article.image.url(:medium)
         %p= raw truncate( article.text, :length => 140, :omission => '...' )
 
+=======
+    %li.agenda-article#national-feature-li
+      %h3 National Feature
+      - agenda.articles.each do |article|
+        - if article.kind == "National Feature"
+          = render :partial => "agendas/agenda_article", :locals => { :article => article }
+    %li.agenda-article#campus-feature-li
+      %h3 Campus Feature
+      - agenda.articles.each do |article|
+        - if article.kind == "Campus Feature"
+          = render :partial => "agendas/agenda_article", :locals => { :article => article }
+>>>>>>> e6df53ba538d479d8de147556bdbc1c03188dfcf

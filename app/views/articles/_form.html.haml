@@ -13,6 +13,7 @@
     %tr.text_field
       %th= f.label :byline
       %td= f.text_field :byline
+<<<<<<< HEAD
     %tr.text_field
       %th= f.label :image
       %td= f.file_field :image
@@ -24,9 +25,14 @@
           = image_tag @article.image.url(:thumb) 
           = f.label :delete?
           = check_box_tag :delete_image?
+=======
+    %tr.check_box
+      %th= f.label :is_original
+      %td= f.check_box( "is original?" )
+>>>>>>> e6df53ba538d479d8de147556bdbc1c03188dfcf
     %tr.select
       %th= f.label :kind
-      %td= f.select( :kind, [ ["National Feature", "National Feature"], ["Campus Feature", "Campus Feature"] ], { :include_blank => true } )
+      %td= f.select( :kind, [ ["National Feature", "National Feature"], ["Campus Feature", "Campus Feature"], ["Editorial", "Editorial"], ["Digest", "Digest"] ], { :include_blank => true } )
     %tr.select
       %th= f.label :agenda
       %td= f.select( "agenda_id", @agendas.map{ |a| [a.title, a.id] }, { :include_blank => true } )

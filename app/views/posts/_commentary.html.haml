@@ -1,0 +1,7 @@
+%header#page-header
+  %hgroup
+    %h1 Commentary
+    
+#articles-or-posts-wrapper
+  - @posts.each do |post|
+    = render :partial => "shared/article_or_post", :locals => { :article_or_post => post }

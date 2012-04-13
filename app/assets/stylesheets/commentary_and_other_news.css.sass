@@ -1,0 +1,55 @@
+@import variables
+
+header#page-header
+  border: 1px solid $dark_blue
+  -webkit-border-top-left-radius: 50px
+  -moz-border-top-left-radiuw: 50px
+  border-top-left-radius: 50px
+  -webkit-border-bottom-right-radius: 50px
+  -moz-border-bottom-right-radius: 50px
+  border-bottom-right-radius: 50px
+  position: absolute
+  top: 50px
+  margin: 0 25px
+  width: $show_header_blog_width
+  height: $show_header_blog_height
+  hgroup
+    h1
+      background-color: white
+      color: $dark_blue
+      font-size: $show_header_blog_height
+      line-height: $show_header_blog_height
+      top: - $show_header_blog_height / 2
+      left: $show_header_blog_height
+      position: absolute
+      text-align: center
+
+#articles-or-posts-wrapper
+  margin: ($show_header_blog_height + 75px) 25px 0 25px
+  overflow: auto
+  padding-top: 20px
+  height: $show_blog_wrapper_height - 20px
+section.article-or-post-wrapper
+  border: 1px solid $dark_blue
+  -webkit-border-top-left-radius: 50px
+  -moz-border-top-left-radiuw: 50px
+  border-top-left-radius: 50px
+  -webkit-border-bottom-right-radius: 50px
+  -moz-border-bottom-right-radius: 50px
+  border-bottom-right-radius: 50px
+  margin-bottom: 50px
+  margin-right: 25px
+  padding: 20px 0 0 0
+  header.article-or-post-header
+    hgroup
+      h1
+        background-color: white
+        cursor: pointer
+        font-size: 50px
+        line-height: 50px
+        margin-top: -40px
+        margin-left: 50px
+        padding: 0 10px
+        position: absolute
+  .article-or-post-content
+    margin: 20px

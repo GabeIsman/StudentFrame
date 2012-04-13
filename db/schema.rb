@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120409040036) do
+ActiveRecord::Schema.define(:version => 20120410204413) do
 
   create_table "about_pages", :force => true do |t|
     t.text     "text"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20120409040036) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "current"
+    t.text     "pitch"
   end
 
   create_table "articles", :force => true do |t|
@@ -41,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20120409040036) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.boolean  "is_original"
   end
 
   create_table "blogs", :force => true do |t|
@@ -83,6 +85,8 @@ ActiveRecord::Schema.define(:version => 20120409040036) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "blog_id"
+    t.boolean  "is_original"
+    t.string   "byline"
   end
 
   create_table "talk", :force => true do |t|

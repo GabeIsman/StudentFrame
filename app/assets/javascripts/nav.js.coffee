@@ -26,7 +26,7 @@ $ ->
     
   $('li#commentary-li').click ->
     a = AjaxIt()
-    a.run( '/blogs/commentary' )
+    a.run( '/posts/commentary' )
     
   $('li#about-li').click ->
     $('#lightbox-gloss').slideToggle(
@@ -112,5 +112,8 @@ $ ->
               window.slide()
             if ajax_url is '/blogs/commentary'
               window.commentaryBindings()
+            if ajax_url is '/agendas/current_agenda'
+              FB.XFBML.parse()
+              window.agenda_bindings()
         )
       delay 1000, -> ajax_away()

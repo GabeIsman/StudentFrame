@@ -65,6 +65,7 @@ class ArticlesController < ApplicationController
   # PUT /articles/1.json
   def update
     @article = Article.find(params[:id])
+    params[:article][:image] = nil if params[:delete_image?]
 
     respond_to do |format|
       if @article.update_attributes(params[:article])
