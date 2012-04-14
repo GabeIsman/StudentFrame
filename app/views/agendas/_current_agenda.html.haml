@@ -12,9 +12,9 @@
       %h3 National Feature
       - agenda.articles.each do |article|
         - if article.kind == "National Feature"
-          = render :partial => "agendas/agenda_article", :locals => { :article => article }
+          = render :partial => "shared/original_article_or_post", :locals => { :article_or_post => article }
     %li.agenda-article#campus-feature-li
       %h3 Campus Feature
       - agenda.articles.each do |article|
         - if article.kind == "Campus Feature"
-          = render :partial => "agendas/agenda_article", :locals => { :article => article }
+          = render :partial => "shared/original_article_or_post", :locals => { :article_or_post => article }

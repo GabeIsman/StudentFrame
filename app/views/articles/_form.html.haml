@@ -13,9 +13,12 @@
     %tr.text_field
       %th= f.label :byline
       %td= f.text_field :byline
+    %tr.text_field
+      %th= f.label :link
+      %td= f.text_field :link
     %tr.check_box
       %th= f.label :is_original
-      %td= f.check_box( "is original?" )
+      %td= f.check_box( "is_original" )
     %tr.select
       %th= f.label :kind
       %td= f.select( :kind, [ ["National Feature", "National Feature"], ["Campus Feature", "Campus Feature"], ["Editorial", "Editorial"], ["Digest", "Digest"] ], { :include_blank => true } )

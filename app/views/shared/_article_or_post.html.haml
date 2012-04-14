@@ -1,9 +1,10 @@
 %section.article-or-post-wrapper
   %header.article-or-post-header
     %hgroup
-      %h1= article_or_post.title
+      %h1.article-or-post-title
+        %a{ :href => "#{article_or_post.link}" }= article_or_post.title
   .article-or-post-content
     %p= raw truncate( article_or_post.text, :length => 500, :omission => '...' )
-  %footer.article_or_post-footer
+  %footer.article-or-post-footer
     %hgroup
       %h2= article_or_post.byline if article_or_post.byline

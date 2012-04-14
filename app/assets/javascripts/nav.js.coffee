@@ -115,5 +115,8 @@ $ ->
             if ajax_url is '/agendas/current_agenda'
               FB.XFBML.parse()
               window.agenda_bindings()
+              window.original_articles_bindings()
+            if ajax_url is '/articles/other_news'
+              window.original_articles_bindings()
         )
       delay 1000, -> ajax_away()

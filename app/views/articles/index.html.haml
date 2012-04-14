@@ -4,8 +4,10 @@
   %tr
     %th Title
     %th Byline
+    %th Link
     %th Kind
     %th Agenda
+    %th Is Original?
     %th
     %th
     %th
@@ -14,8 +16,10 @@
     %tr
       %td= article.title if article.title
       %td= article.byline if article.byline
+      %td= article.link if article.link
       %td= article.kind if article.kind
       %td= article.agenda.title if article.agenda
+      %td= article.is_original
       %td= link_to 'Show', article
       %td= link_to 'Edit', edit_article_path(article)
       %td= link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete

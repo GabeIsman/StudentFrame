@@ -2,6 +2,7 @@ class ArticlesController < ApplicationController
   
   def other_news
     @articles = Article.where( :agenda_id => nil )
+    @articles.each { |article| article.text = add_p_tags( article.text ) }
     render :partial => "articles/other_news"
   end
   
