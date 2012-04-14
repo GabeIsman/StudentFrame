@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(:version => 20120411012625) do
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "subtitle"
     t.boolean  "current"
     t.text     "pitch"
   end
@@ -39,6 +38,10 @@ ActiveRecord::Schema.define(:version => 20120411012625) do
     t.integer  "agenda_id"
     t.integer  "user_id"
     t.string   "kind"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.boolean  "is_original"
     t.string   "link"
   end
@@ -60,9 +63,12 @@ ActiveRecord::Schema.define(:version => 20120411012625) do
   create_table "front_pages", :force => true do |t|
     t.text     "text"
     t.string   "title"
-    t.string   "subtitle"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "pages", :force => true do |t|

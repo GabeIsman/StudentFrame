@@ -1,4 +1,7 @@
 class AgendasController < ApplicationController
+
+  before_filter :require_login, :except => [:show, :current_agenda]
+
   # GET /agendas
   # GET /agendas.json
   def index

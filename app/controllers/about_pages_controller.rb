@@ -1,5 +1,7 @@
 class AboutPagesController < ApplicationController
   
+  before_filter :require_login, :except => [:show]
+
   def about_page
     @about_pages = AboutPage.all
     @about_pages.each { |about_page| about_page.text = add_p_tags( about_page.text ) }

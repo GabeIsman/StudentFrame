@@ -1,4 +1,4 @@
-= form_for @article, :html => { :class => "cms-form", :id => "articles-form" } do |f|
+= form_for @article, :html => { :class => "cms-form", :id => "articles-form", :multipart => true } do |f|
   -if @article.errors.any?
     #error_explanation
       %h2= "#{pluralize(@article.errors.count, "error")} prohibited this article from being saved:"
@@ -13,12 +13,25 @@
     %tr.text_field
       %th= f.label :byline
       %td= f.text_field :byline
+<<<<<<< HEAD
     %tr.text_field
       %th= f.label :link
       %td= f.text_field :link
     %tr.check_box
       %th= f.label :is_original
       %td= f.check_box( "is_original" )
+    %tr.text_field
+      %th= f.label :image
+      %td= f.file_field :image
+    - if @article.image
+      %tr
+        %th
+          current image
+        %td
+          = image_tag @article.image.url(:thumb) 
+          = f.label :delete?
+          = check_box_tag :delete_image?
+
     %tr.select
       %th= f.label :kind
       %td= f.select( :kind, [ ["National Feature", "National Feature"], ["Campus Feature", "Campus Feature"], ["Editorial", "Editorial"], ["Digest", "Digest"] ], { :include_blank => true } )

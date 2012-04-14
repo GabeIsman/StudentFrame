@@ -1,4 +1,7 @@
 class TalkController < ApplicationController
+
+  before_filter :require_login, :except => [:show]
+
   # GET /talk
   # GET /talk.json
   def index

@@ -13,6 +13,9 @@
     %tr.text_field
       %th= f.label :subtitle
       %td= f.text_field :subtitle
+    %tr.text_field
+      %th= f.label :image
+      %td= f.file_field :image
     %tr.check_box
       %th= f.label :current
       %td= f.check_box( 'current' )

@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
   
+  before_filter :require_login, :except => [:show, :other_news]
+
   def other_news
     @articles = Article.where( :agenda_id => nil )
     @articles.each { |article| article.text = add_p_tags( article.text ) }
@@ -66,6 +68,7 @@ class ArticlesController < ApplicationController
   # PUT /articles/1.json
   def update
     @article = Article.find(params[:id])
+    params[:article][:image] = nil if params[:delete_image?]
 
     respond_to do |format|
       if @article.update_attributes(params[:article])
