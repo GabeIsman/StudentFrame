@@ -1,6 +1,5 @@
 StudentFrame::Application.routes.draw do
 
-
   match 'log_in' => 'sessions#new'
   match 'log_out' => 'sessions#destroy'
   match 'sessions/create' => 'sessions#create'

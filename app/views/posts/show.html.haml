@@ -1,13 +1,4 @@
 %p#notice= notice
-
-%p
-  %b Text:
-  = @post.text
-%p
-  %b Title:
-  = @post.title
-
-
-= link_to 'Edit', edit_post_path(@post)
-\|
-= link_to 'Back', posts_path
+#post-view-content
+  = render :partial => "shared/original_article_or_post", :locals => { :article_or_post => @article } if @article.is_original
+  = render :partial => "shared/article_or_post", :locals => { :article_or_post => @article } unless @article.is_original

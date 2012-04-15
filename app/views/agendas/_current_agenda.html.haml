@@ -11,10 +11,20 @@
     %li.agenda-article#national-feature-li
       %h3 National Feature
       - agenda.articles.each do |article|
-        - if article.kind == "National Feature"
-          = render :partial => "shared/original_article_or_post", :locals => { :article_or_post => article }
+        = render :partial => "shared/original_article_or_post", :locals => { :article_or_post => article } if article.kind == "National Feature"
+          
     %li.agenda-article#campus-feature-li
-      %h3 Campus Feature
+      %h3 Campus Features
       - agenda.articles.each do |article|
-        - if article.kind == "Campus Feature"
-          = render :partial => "shared/original_article_or_post", :locals => { :article_or_post => article }
+        = render :partial => "shared/original_article_or_post", :locals => { :article_or_post => article } if article.kind == "Campus Feature"
+          
+    %li.agenda-article#editorial-li
+      %h3 Editorials
+      - agenda.articles.each do |article|
+        = render :partial => "shared/original_article_or_post", :locals => { :article_or_post => article } if article.kind == "Editorial"
+        
+    %li.agenda-article#digest-li
+      %h3 Digests
+      - agenda.articles.each do |article|
+        = render :partial => "shared/original_article_or_post", :locals => { :article_or_post => article } if article.kind == "Digest"
+          

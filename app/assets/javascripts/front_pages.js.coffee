@@ -6,7 +6,7 @@ $ ->
     ########################################################
     current_position = 0
     slides = $('.slide')
-    slide_width = $('.slide').width() + 50
+    slide_width = $('.slide').width()
     slide_height = $('.slide').height()
     slider = $('#slider')
   

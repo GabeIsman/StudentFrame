@@ -1,12 +1,4 @@
 %p#notice= notice
-
-
-<<<<<<< HEAD
-= image_tag @article.image.url(:thumb)
-
-=======
->>>>>>> e6df53ba538d479d8de147556bdbc1c03188dfcf
-
-= link_to 'Edit', edit_article_path(@article)
-\|
-= link_to 'Back', articles_path
+#article-view-content
+  = render :partial => "shared/original_article_or_post", :locals => { :article_or_post => @article } if @article.is_original
+  = render :partial => "shared/article_or_post", :locals => { :article_or_post => @article } unless @article.is_original

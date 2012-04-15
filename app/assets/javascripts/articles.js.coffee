@@ -1,3 +1,24 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+$ ->
+  hide_agenda_text = () ->
+    $('.full-text').hide()
+    $('.comments').hide()
+    
+  show_agenda_text_bindings = () ->
+    $('h1.article-or-post-title').click ->
+      text = $(this).parent('hgroup').parent('header').parent('section').children('.text')
+      text.children('.preview-text').slideToggle(
+        'slow'
+      )
+      text.children('.full-text').slideToggle(
+        'slow'
+        ->
+          text.children('.comments').slideToggle( 
+            'slow'
+            ->
+              div = text.parent('section')
+              window.image_slideshow_bindings( div )
+          )
+      )
+
+  hide_agenda_text()
+  show_agenda_text_bindings()
