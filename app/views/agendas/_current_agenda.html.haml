@@ -17,6 +17,11 @@
       %h3 Campus Features
       - agenda.articles.each do |article|
         = render :partial => "shared/original_article_or_post", :locals => { :article_or_post => article } if article.kind == "Campus Feature"
+        
+    %li.agenda-article#columns-li
+      %h3 Columns
+      - agenda.blogs.each do |blog|
+        = render :partial => "blogs/column", :locals => { :blog => blog }
           
     %li.agenda-article#editorial-li
       %h3 Editorials

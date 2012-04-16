@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120414174707) do
+ActiveRecord::Schema.define(:version => 20120416000403) do
 
   create_table "about_pages", :force => true do |t|
     t.text     "text"
@@ -102,6 +102,21 @@ ActiveRecord::Schema.define(:version => 20120414174707) do
     t.boolean  "is_original"
     t.string   "byline"
     t.string   "link"
+    t.text     "caption0"
+    t.string   "image0_file_name"
+    t.string   "image0_content_type"
+    t.integer  "image0_file_size"
+    t.datetime "image0_updated_at"
+    t.text     "caption1"
+    t.string   "image1_file_name"
+    t.string   "image1_content_type"
+    t.integer  "image1_file_size"
+    t.datetime "image1_updated_at"
+    t.text     "caption2"
+    t.string   "image2_file_name"
+    t.string   "image2_content_type"
+    t.integer  "image2_file_size"
+    t.datetime "image2_updated_at"
   end
 
   create_table "talk", :force => true do |t|

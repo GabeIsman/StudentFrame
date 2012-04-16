@@ -116,6 +116,7 @@ $ ->
               FB.XFBML.parse()
               window.agenda_bindings()
               window.original_articles_bindings()
+              window.column_bindings()
             if ajax_url is '/articles/other_news'
               window.original_articles_bindings()
         )
