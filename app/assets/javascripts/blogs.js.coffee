@@ -1,23 +1,12 @@
 $ ->
   
   delay = (ms, func) -> setTimeout(func, ms)
-  window.commentaryBindings = () ->
   
-    $('.blog-title').click ->
-      a = new AjaxIt
-      a.run( '/blogs/ajax_show/', $(this).data( 'blog-id' ) )
+  window.column_bindings = () ->
+    $('.column').find('.article-or-post-wrapper').hide()
+    $('.column-title').click ->
+      console.log "click"
+      div = $(this).parent('.column-header').parent('.column')
+      div.find('.article-or-post-wrapper').slideToggle( 'slow' )
+
     
-  
-    AjaxIt = () ->
-      ls: new window.LoadingSign( $('#content') )
-      run: ( ajax_url, blog_id ) ->
-        this.ls.prepare()
-        this.ls.auto( 1 )
-        ajax_away = () ->
-          $.ajax(
-            url: ajax_url
-            data: { id: blog_id }
-            success: (data) ->
-              $('#content').html(data)
-          )
-        delay 1000, -> ajax_away()

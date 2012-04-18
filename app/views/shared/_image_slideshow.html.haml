@@ -1,0 +1,19 @@
+.image-slideshow
+  .image-slideshow-slider
+    - if article_or_post.image0.url != '/image0s/original/missing.png'
+      .image-slideshow-slide
+        = image_tag article_or_post.image0.url
+        %p= article_or_post.caption0
+    - if article_or_post.image1.url != '/image1s/original/missing.png'
+      .image-slideshow-slide
+        = image_tag article_or_post.image1.url
+        %p= article_or_post.caption1
+    - if article_or_post.image2.url != '/image2s/original/missing.png'
+      .image-slideshow-slide
+        = image_tag article_or_post.image2.url
+        %p= article_or_post.caption2
+  .image-slideshow-controls
+    .play.image-control
+    .pause.image-control
+    .left.image-control
+    .right.image-control

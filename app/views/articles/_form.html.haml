@@ -13,23 +13,55 @@
     %tr.text_field
       %th= f.label :byline
       %td= f.text_field :byline
-<<<<<<< HEAD
     %tr.text_field
-      %th= f.label :image
-      %td= f.file_field :image
-    - if @article.image
+      %th= f.label :link
+      %td= f.text_field :link
+    %tr.check_box
+      %th= f.label :is_original
+      %td= f.check_box( "is_original" )
+    %tr.text_field
+      %th= f.label :image0
+      %td= f.file_field :image0
+    - if @article.image0
       %tr
         %th
           current image
         %td
-          = image_tag @article.image.url(:thumb) 
+          = image_tag @article.image0.url(:thumb) 
           = f.label :delete?
           = check_box_tag :delete_image?
-=======
-    %tr.check_box
-      %th= f.label :is_original
-      %td= f.check_box( "is original?" )
->>>>>>> e6df53ba538d479d8de147556bdbc1c03188dfcf
+    %tr.text_field
+      %th= f.label :caption0
+      %td= f.text_field :caption0
+    %tr.text_field
+      %th= f.label :image1
+      %td= f.file_field :image1
+    - if @article.image1
+      %tr
+        %th
+          current image
+        %td
+          = image_tag @article.image1.url(:thumb) 
+          = f.label :delete?
+          = check_box_tag :delete_image?
+    %tr.text_field
+      %th= f.label :caption1
+      %td= f.text_field :caption1          
+    %tr.text_field
+      %th= f.label :image2
+      %td= f.file_field :image2
+    - if @article.image2
+      %tr
+        %th
+          current image
+        %td
+          = image_tag @article.image2.url(:thumb) 
+          = f.label :delete?
+          = check_box_tag :delete_image?
+    %tr.text_field
+      %th= f.label :caption2
+      %td= f.text_field :caption2
+
     %tr.select
       %th= f.label :kind
       %td= f.select( :kind, [ ["National Feature", "National Feature"], ["Campus Feature", "Campus Feature"], ["Editorial", "Editorial"], ["Digest", "Digest"] ], { :include_blank => true } )

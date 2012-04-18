@@ -4,4 +4,5 @@
     
 #articles-or-posts-wrapper
   - @posts.each do |post|
-    = render :partial => "shared/article_or_post", :locals => { :article_or_post => post }
+    = render :partial => "shared/article_or_post", :locals => { :article_or_post => post } if !post.is_original
+    = render :partial => "shared/original_article_or_post", :locals => { :article_or_post => post } if post.is_original

@@ -28,6 +28,7 @@ class BlogsController < ApplicationController
   # GET /blogs/new.json
   def new
     @blog = Blog.new
+    @agendas = Agenda.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -38,6 +39,7 @@ class BlogsController < ApplicationController
   # GET /blogs/1/edit
   def edit
     @blog = Blog.find(params[:id])
+    @agendas = Agenda.all
   end
 
   # POST /blogs

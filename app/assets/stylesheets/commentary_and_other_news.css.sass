@@ -53,3 +53,66 @@ section.article-or-post-wrapper
         position: absolute
   .article-or-post-content
     margin: 20px
+  .text
+    margin: 20px
+    
+    .image-slideshow
+      background-color: black
+      float: right
+      margin: 0 0 20px 20px
+      overflow: hidden
+      width: 450px
+      height: 450px
+      .image-slideshow-slider
+        height: 400px
+        .image-slideshow-slide
+          float: left
+          width: 450px
+          height: 400px
+          img
+            display: block
+            margin-top: 25px
+            margin-right: auto
+            margin-left: auto
+          p
+            color: white
+            position: absolute
+            bottom: 0
+            margin: 5px 25px
+      .image-slideshow-controls
+        background-color: rgb(50,50,50)
+        position: absolute
+        bottom: 0
+        z-index: 1
+        width: 450px
+        height: 50px
+        .image-control
+          cursor: pointer
+          float: left
+          width: 50px
+          height: 50px
+        .play
+          background: url("images/play.png")
+          margin-left: (450 - 200px ) / 2
+        .pause
+          background: url("images/pause.png")
+        .left
+          background: url("images/left.png")
+        .right
+          background: url("images/right.png")
+    
+    .full-text
+      p:first-child:first-letter
+        @include dropcap
+    
+footer.article-or-post-footer
+  hgroup
+    h2
+      background-color: white
+      font-family: "News Cycle"
+      font-size: 25px
+      line-height: 25px
+      padding: 0 10px
+      position: absolute
+      right: 50px
+      bottom: -12.5px

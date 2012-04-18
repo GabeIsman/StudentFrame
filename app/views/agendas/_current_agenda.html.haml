@@ -7,29 +7,29 @@
   .pitch-wrapper
     = raw agenda.pitch
   %ul#agenda-list
-    
-<<<<<<< HEAD
-%ul#agenda-list
-  - agenda.articles.each do |article|
-    %li.agenda-article
-      %header
-        %hgroup
-          %h3= article.kind
-          %h1= article.title
-          %h2= article.byline
-      #text
-        = image_tag article.image.url(:medium)
-        %p= raw truncate( article.text, :length => 140, :omission => '...' )
 
-=======
     %li.agenda-article#national-feature-li
       %h3 National Feature
       - agenda.articles.each do |article|
-        - if article.kind == "National Feature"
-          = render :partial => "agendas/agenda_article", :locals => { :article => article }
+        = render :partial => "shared/original_article_or_post", :locals => { :article_or_post => article } if article.kind == "National Feature"
+          
     %li.agenda-article#campus-feature-li
-      %h3 Campus Feature
+      %h3 Campus Features
       - agenda.articles.each do |article|
-        - if article.kind == "Campus Feature"
-          = render :partial => "agendas/agenda_article", :locals => { :article => article }
->>>>>>> e6df53ba538d479d8de147556bdbc1c03188dfcf
+        = render :partial => "shared/original_article_or_post", :locals => { :article_or_post => article } if article.kind == "Campus Feature"
+        
+    %li.agenda-article#columns-li
+      %h3 Columns
+      - agenda.blogs.each do |blog|
+        = render :partial => "blogs/column", :locals => { :blog => blog }
+          
+    %li.agenda-article#editorial-li
+      %h3 Editorials
+      - agenda.articles.each do |article|
+        = render :partial => "shared/original_article_or_post", :locals => { :article_or_post => article } if article.kind == "Editorial"
+        
+    %li.agenda-article#digest-li
+      %h3 Digests
+      - agenda.articles.each do |article|
+        = render :partial => "shared/original_article_or_post", :locals => { :article_or_post => article } if article.kind == "Digest"
+          

@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_filter :require_login, :except => [:commentary, :show]
   
   def commentary
-    @posts = Post.where( blog = nil )
+    @posts = Post.where( :blog_id => nil )
     render :partial => "posts/commentary"
   end
   

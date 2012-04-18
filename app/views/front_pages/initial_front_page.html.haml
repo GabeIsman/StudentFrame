@@ -1,6 +1,7 @@
 #slider
   - @front_pages.each do |page|
     %section.slide
+      %img.front-page-image{ :src => "#{page.image}" }
       %header.slide-header
         %hgroup
           %h1= page.title

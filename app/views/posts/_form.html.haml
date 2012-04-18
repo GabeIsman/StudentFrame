@@ -9,12 +9,18 @@
     %tr.text_field
       %th= f.label :title
       %td= f.text_field :title
+    %tr.text_field
+      %th= f.label :byline
+      %td= f.text_field :byline
+    %tr.text_field
+      %th= f.label :link
+      %td= f.text_field :link
     %tr.check_box
       %th= f.label :is_original
-      %td= f.check_box( "is original?" )
+      %td= f.check_box( "is_original" )
     %tr.select
       %th= f.label :blog
-      %td= f.select( "blog_id", @blogs.map{ |a| [a.title, a.id] } )
+      %td= f.select( "blog_id", @blogs.map{ |a| [a.title, a.id] }, { :include_blank => true } )
     %tr.text_area
       %th= f.label :text
       %td= f.text_area :text

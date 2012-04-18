@@ -13,6 +13,9 @@
     %tr.text_field
       %th= f.label :byline
       %td= f.text_field :byline
+    %tr.select
+      %th= f.label :agenda
+      %td= f.select( "agenda_id", @agendas.map{ |a| [a.title, a.id] }, { :include_blank => true } )
     %tr.submit
       %th
       %td= f.submit 'Save'
