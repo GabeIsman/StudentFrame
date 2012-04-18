@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(:version => 20120416000403) do
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "subtitle"
     t.boolean  "current"
     t.text     "pitch"
   end
@@ -75,7 +74,6 @@ ActiveRecord::Schema.define(:version => 20120416000403) do
   create_table "front_pages", :force => true do |t|
     t.text     "text"
     t.string   "title"
-    t.string   "subtitle"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image_file_name"
