@@ -1,0 +1,9 @@
+.column
+  %header.column-header
+    %h1.column-title= blog.title
+  .column-content
+    - blog.posts.each do |post|
+      = render :partial => "shared/original_article_or_post", :locals => { :article_or_post => post }
+  %footer.column-footer
+    %h2.column-byline= blog.byline
+  

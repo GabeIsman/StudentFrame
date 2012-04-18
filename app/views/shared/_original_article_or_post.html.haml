@@ -1,0 +1,16 @@
+%section.article-or-post-wrapper
+  %header.article-or-post-header
+    %hgroup
+      %h1.article-or-post-title= article_or_post.title
+  .text
+    .preview-text
+      %p= raw truncate( article_or_post.text, :length => 500, :omission => '...' )
+    .full-text
+      = render :partial => "shared/image_slideshow", :locals => { :article_or_post => article_or_post } if article_or_post.image0.url != '/image0s/original/missing.png'
+      .text-wrapper
+        = raw article_or_post.text 
+    .comments
+      %fb:comments{ :href => "localhost", :numposts => 5, :width => 800, :colorscheme => "light" }
+  %footer.article-or-post-footer
+    %hgroup
+      %h2= article_or_post.byline
