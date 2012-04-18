@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
   def create
     @active_user = User.authenticate( params[:email], params[:password] )
-    if @active_user.nil?
+    if !@active_user
       flash[:error] = "Incorrect user name or password"
       return redirect_to :controller => :sessions, :action => :new
     end
